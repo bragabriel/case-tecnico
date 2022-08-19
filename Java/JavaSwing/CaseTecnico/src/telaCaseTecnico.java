@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -5,16 +8,17 @@
 
 /**
  *
- * @author birio
+ * @author Gabriel Braga da Silva
  */
 public class telaCaseTecnico extends javax.swing.JFrame {
 
-    /**
-     * Creates new form telaCaseTecnico
-     */
+    ArrayList<Pessoa> listaUsuarios = new ArrayList<Pessoa>();
+    
+    int i = 0;
+
     public telaCaseTecnico() { //Construtor
+        
         initComponents();
-        panPessoas.setVisible(false);
         panCategorias.setVisible(false);
     }
 
@@ -32,17 +36,20 @@ public class telaCaseTecnico extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnExibir = new javax.swing.JButton();
+        btnOrdenarIdade = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnCriancas = new javax.swing.JButton();
         btnAdolescentes = new javax.swing.JButton();
         btnAdultos = new javax.swing.JButton();
         btnIdosos = new javax.swing.JButton();
         panPessoas = new java.awt.Panel();
+        lblPessoas = new javax.swing.JLabel();
         panCategorias = new java.awt.Panel();
+        lblCategoria = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtIdade = new javax.swing.JSpinner();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,10 +69,10 @@ public class telaCaseTecnico extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Pessoas cadastradas");
 
-        btnExibir.setText("Exibir");
-        btnExibir.addActionListener(new java.awt.event.ActionListener() {
+        btnOrdenarIdade.setText("Ordenar por Idade");
+        btnOrdenarIdade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExibirActionPerformed(evt);
+                btnOrdenarIdadeActionPerformed(evt);
             }
         });
 
@@ -104,29 +111,38 @@ public class telaCaseTecnico extends javax.swing.JFrame {
         panPessoas.setLayout(panPessoasLayout);
         panPessoasLayout.setHorizontalGroup(
             panPessoasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panPessoasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panPessoasLayout.setVerticalGroup(
             panPessoasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panPessoasLayout.createSequentialGroup()
+                .addGap(0, 24, Short.MAX_VALUE)
+                .addComponent(lblPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        lblCategoria.setText("jLabel8");
 
         javax.swing.GroupLayout panCategoriasLayout = new javax.swing.GroupLayout(panCategorias);
         panCategorias.setLayout(panCategoriasLayout);
         panCategoriasLayout.setHorizontalGroup(
             panCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 373, Short.MAX_VALUE)
+            .addComponent(lblCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
         );
         panCategoriasLayout.setVerticalGroup(
             panCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addComponent(lblCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel5.setText("Nome:");
 
         jLabel6.setText("Idade:");
 
-        txtIdade.setModel(new javax.swing.SpinnerNumberModel(0, null, 100, 1));
+        txtIdade.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+
+        jButton1.setText("Ordem Alfabética");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,25 +169,34 @@ public class telaCaseTecnico extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(btnExibir)
-                            .addComponent(panPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCriancas)
+                                .addComponent(btnOrdenarIdade)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnAdolescentes)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAdultos)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnIdosos))
-                            .addComponent(panCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(89, 89, 89))))
+                                .addComponent(jButton1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(96, Short.MAX_VALUE)
+                        .addComponent(panPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCriancas)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAdolescentes)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAdultos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnIdosos))
+                    .addComponent(panCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(132, 132, 132))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,25 +217,29 @@ public class telaCaseTecnico extends javax.swing.JFrame {
                         .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16)
                 .addComponent(btnAdicionar)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(btnExibir))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnOrdenarIdade)
+                            .addComponent(jButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(20, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCriancas)
                             .addComponent(btnAdolescentes)
                             .addComponent(btnAdultos)
-                            .addComponent(btnIdosos))))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panPessoas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                            .addComponent(btnIdosos))
+                        .addGap(31, 31, 31)
+                        .addComponent(panCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(21, 21, 21))))
         );
 
         pack();
@@ -221,13 +250,34 @@ public class telaCaseTecnico extends javax.swing.JFrame {
         String nome = txtNome.getText();
         int idade = Integer.parseInt(txtIdade.getValue().toString());
         
-        System.out.println(nome + idade);
+        Pessoa p1 = new Pessoa(nome, idade);
+        listaUsuarios.add(p1);
+        
+        txtNome.setText(""); //reset input after submit
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
-    private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
+    private void btnOrdenarIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarIdadeActionPerformed
         // TODO add your handling code here:
         panPessoas.setVisible(true);
-    }//GEN-LAST:event_btnExibirActionPerformed
+        
+        String result = "<html>"; //concat tag HTML para conseguir quebrar a linha com <br>
+        
+        for(i = 0; i < listaUsuarios.size(); ++i) {
+	    System.out.println(i + 1 + " - ");
+            
+            result += listaUsuarios.get(i).imprimirPessoa();
+	}
+        result += "</html>";
+        
+        lblPessoas.setVerticalAlignment(lblPessoas.TOP);
+        
+        lblPessoas.setText(result);
+        
+        
+        System.out.println(result);
+        
+        
+    }//GEN-LAST:event_btnOrdenarIdadeActionPerformed
 
     private void btnCriancasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriancasActionPerformed
         // TODO add your handling code here:
@@ -282,6 +332,9 @@ public class telaCaseTecnico extends javax.swing.JFrame {
                 new telaCaseTecnico().setVisible(true);
             }
         });
+       
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -289,14 +342,17 @@ public class telaCaseTecnico extends javax.swing.JFrame {
     private javax.swing.JButton btnAdolescentes;
     private javax.swing.JButton btnAdultos;
     private javax.swing.JButton btnCriancas;
-    private javax.swing.JButton btnExibir;
     private javax.swing.JButton btnIdosos;
+    private javax.swing.JButton btnOrdenarIdade;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel lblCategoria;
+    private javax.swing.JLabel lblPessoas;
     private java.awt.Panel panCategorias;
     private java.awt.Panel panPessoas;
     private javax.swing.JSpinner txtIdade;
