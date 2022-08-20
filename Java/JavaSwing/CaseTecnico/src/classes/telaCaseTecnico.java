@@ -1,5 +1,8 @@
+package classes;
+
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,6 +16,10 @@ import java.util.ArrayList;
 public class telaCaseTecnico extends javax.swing.JFrame {
 
     ArrayList<Pessoa> listaUsuarios = new ArrayList<Pessoa>();
+    ArrayList<Pessoa> categoriaCrianca = new ArrayList<Pessoa>();
+    ArrayList<Pessoa> categoriaAdolescente = new ArrayList<Pessoa>();
+    ArrayList<Pessoa> categoriaAdulto = new ArrayList<Pessoa>();
+    ArrayList<Pessoa> categoriaIdoso = new ArrayList<Pessoa>();
     
     int i = 0;
 
@@ -49,12 +56,14 @@ public class telaCaseTecnico extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtIdade = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
+        btnOrdenarAlfabetico = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Digite um nome e clique em adicionar para realizar um cadastro");
+        jLabel1.setText("<html>Insira as informações do usuário e clique em 'Adicionar' para realizar um cadastro.</html>");
 
         btnAdicionar.setText("Adicionar");
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -63,8 +72,10 @@ public class telaCaseTecnico extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Cadastro");
+        jLabel2.setBackground(new java.awt.Color(153, 204, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel2.setText("Cadastro de Pessoas");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Pessoas cadastradas");
@@ -119,72 +130,75 @@ public class telaCaseTecnico extends javax.swing.JFrame {
         panPessoasLayout.setVerticalGroup(
             panPessoasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panPessoasLayout.createSequentialGroup()
-                .addGap(0, 24, Short.MAX_VALUE)
-                .addComponent(lblPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
-
-        lblCategoria.setText("jLabel8");
 
         javax.swing.GroupLayout panCategoriasLayout = new javax.swing.GroupLayout(panCategorias);
         panCategorias.setLayout(panCategoriasLayout);
         panCategoriasLayout.setHorizontalGroup(
             panCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+            .addGroup(panCategoriasLayout.createSequentialGroup()
+                .addComponent(lblCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panCategoriasLayout.setVerticalGroup(
             panCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panCategoriasLayout.createSequentialGroup()
+                .addComponent(lblCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel5.setText("Nome:");
 
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel6.setText("Idade:");
 
         txtIdade.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
-        jButton1.setText("Ordem Alfabética");
+        btnOrdenarAlfabetico.setText("Ordem Alfabética");
+        btnOrdenarAlfabetico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarAlfabeticoActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/man.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAdicionar)
-                        .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(252, 252, 252))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtNome)
-                                        .addGap(38, 38, 38)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnOrdenarIdade)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(96, Short.MAX_VALUE)
-                        .addComponent(panPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)))
+                                .addComponent(btnOrdenarAlfabetico))
+                            .addComponent(btnAdicionar)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(47, 47, 47)
+                                    .addComponent(jLabel7))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(61, 61, 61)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel6)))))
+                        .addGap(12, 12, 12)))
+                .addGap(118, 118, 118)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
@@ -196,40 +210,41 @@ public class telaCaseTecnico extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnIdosos))
                     .addComponent(panCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(132, 132, 132))
+                .addGap(129, 129, 129))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
-                .addComponent(btnAdicionar)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jLabel2)))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtIdade, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(txtNome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAdicionar)
                         .addGap(39, 39, 39)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnOrdenarIdade)
-                            .addComponent(jButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnOrdenarAlfabetico))
+                        .addGap(15, 15, 15)
+                        .addComponent(panPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -238,8 +253,8 @@ public class telaCaseTecnico extends javax.swing.JFrame {
                             .addComponent(btnAdultos)
                             .addComponent(btnIdosos))
                         .addGap(31, 31, 31)
-                        .addComponent(panCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(21, 21, 21))))
+                        .addComponent(panCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -254,17 +269,12 @@ public class telaCaseTecnico extends javax.swing.JFrame {
         listaUsuarios.add(p1);
         
         txtNome.setText(""); //reset input after submit
-    }//GEN-LAST:event_btnAdicionarActionPerformed
-
-    private void btnOrdenarIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarIdadeActionPerformed
-        // TODO add your handling code here:
+        
         panPessoas.setVisible(true);
         
         String result = "<html>"; //concat tag HTML para conseguir quebrar a linha com <br>
         
-        for(i = 0; i < listaUsuarios.size(); ++i) {
-	    System.out.println(i + 1 + " - ");
-            
+        for(i = 0; i < listaUsuarios.size(); ++i) {            
             result += listaUsuarios.get(i).imprimirPessoa();
 	}
         result += "</html>";
@@ -272,32 +282,198 @@ public class telaCaseTecnico extends javax.swing.JFrame {
         lblPessoas.setVerticalAlignment(lblPessoas.TOP);
         
         lblPessoas.setText(result);
+    }//GEN-LAST:event_btnAdicionarActionPerformed
+
+    private void btnOrdenarIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarIdadeActionPerformed
+        // TODO add your handling code here:
+        panPessoas.setVisible(true);
         
+        listaUsuarios.sort(Comparator.comparing(Pessoa::getIdade));
         
-        System.out.println(result);
+        String result = "<html>"; //concat tag HTML para conseguir quebrar a linha com <br>
         
+        for(i = 0; i < listaUsuarios.size(); ++i) {
+           
+            result += listaUsuarios.get(i).imprimirPessoa();
+	}
+        result += "</html>";
         
+        lblPessoas.setVerticalAlignment(lblPessoas.TOP);
+        
+        lblPessoas.setText(result);        
     }//GEN-LAST:event_btnOrdenarIdadeActionPerformed
 
     private void btnCriancasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriancasActionPerformed
         // TODO add your handling code here:
         panCategorias.setVisible(true);
+        
+        lblCategoria.setText("");//Reset label
+        
+        listaUsuarios.sort(Comparator.comparing(Pessoa::getIdade));
+        
+        categoriaCrianca.clear();
+         
+        for(i = 0; i < listaUsuarios.size(); ++i) {
+            
+            //Atribuindo a idade dos usuários para a variável categoria
+            int categoria = listaUsuarios.get(i).getIdade();
+
+	    if (categoria >= 0 && categoria <= 12) {
+                categoriaCrianca.add(listaUsuarios.get(i));
+            }
+        }
+        
+        String result = "<html> Usuários na categoria <b>'Crianças'</b>: <br><br>"; //concat tag HTML para conseguir quebrar a linha com <br>
+        
+        if(categoriaCrianca.isEmpty()){
+            lblCategoria.setText("Nenhum usuario na categoria Crianca.");
+            lblCategoria.setVerticalAlignment(lblPessoas.TOP);
+        }else {
+            for(i = 0; i < categoriaCrianca.size(); ++i) {
+
+                result += categoriaCrianca.get(i).imprimirPessoa();
+            }
+            result += "</html>";
+
+            lblCategoria.setVerticalAlignment(lblPessoas.TOP);
+
+            lblCategoria.setText(result);
+        }
     }//GEN-LAST:event_btnCriancasActionPerformed
 
+    
     private void btnAdolescentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdolescentesActionPerformed
         // TODO add your handling code here:
         panCategorias.setVisible(true);
+        
+        lblCategoria.setText("");//Reset label
+        
+        listaUsuarios.sort(Comparator.comparing(Pessoa::getIdade));
+        
+        categoriaAdolescente.clear();
+         
+        for(i = 0; i < listaUsuarios.size(); ++i) {
+            
+            //Atribuindo a idade dos usuários para a variável categoria
+            int categoria = listaUsuarios.get(i).getIdade();
+
+	    if (categoria >= 13 && categoria <= 19) {
+                categoriaAdolescente.add(listaUsuarios.get(i));
+            }
+        }
+        
+        String result = "<html> Usuários na categoria <b>'Adolescentes'</b>: <br><br>"; //concat tag HTML para conseguir quebrar a linha com <br>
+        
+        if(categoriaAdolescente.isEmpty()){
+            lblCategoria.setText("Nenhum usuario na categoria Adolescente.");
+            lblCategoria.setVerticalAlignment(lblPessoas.TOP);
+        }else {
+            for(i = 0; i < categoriaAdolescente.size(); ++i) {
+
+                result += categoriaAdolescente.get(i).imprimirPessoa();
+            }
+            result += "</html>";
+
+            lblCategoria.setVerticalAlignment(lblPessoas.TOP);
+
+            lblCategoria.setText(result);
+        }
     }//GEN-LAST:event_btnAdolescentesActionPerformed
 
     private void btnAdultosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdultosActionPerformed
         // TODO add your handling code here:
         panCategorias.setVisible(true);
+        
+        lblCategoria.setText("");//Reset label
+        
+        listaUsuarios.sort(Comparator.comparing(Pessoa::getIdade));
+        
+        categoriaAdulto.clear();
+         
+        for(i = 0; i < listaUsuarios.size(); ++i) {
+            
+            //Atribuindo a idade dos usuários para a variável categoria
+            int categoria = listaUsuarios.get(i).getIdade();
+
+	    if (categoria >= 20 && categoria <= 65) {
+                categoriaAdulto.add(listaUsuarios.get(i));
+            }
+        }
+        
+        String result = "<html> Usuários na categoria <b>'Adultos'</b>: <br><br>"; //concat tag HTML para conseguir quebrar a linha com <br>
+        
+        if(categoriaAdulto.isEmpty()){
+            lblCategoria.setText("Nenhum usuario na categoria Adulto.");
+            lblCategoria.setVerticalAlignment(lblPessoas.TOP);
+        }else {
+            for(i = 0; i < categoriaAdulto.size(); ++i) {
+
+                result += categoriaAdulto.get(i).imprimirPessoa();
+            }
+            result += "</html>";
+
+            lblCategoria.setVerticalAlignment(lblPessoas.TOP);
+
+            lblCategoria.setText(result);
+        }
     }//GEN-LAST:event_btnAdultosActionPerformed
 
     private void btnIdososActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdososActionPerformed
         // TODO add your handling code here:
         panCategorias.setVisible(true);
+        
+        lblCategoria.setText("");//Reset label
+        
+        listaUsuarios.sort(Comparator.comparing(Pessoa::getIdade));
+        
+        categoriaIdoso.clear();
+         
+        for(i = 0; i < listaUsuarios.size(); ++i) {
+            
+            //Atribuindo a idade dos usuários para a variável categoria
+            int categoria = listaUsuarios.get(i).getIdade();
+
+	    if (categoria > 65) {
+                categoriaIdoso.add(listaUsuarios.get(i));
+            }
+        }
+        
+        String result = "<html> Usuários na categoria <b>'Idosos'</b>: <br><br>"; //concat tag HTML para conseguir quebrar a linha com <br>
+        
+        if(categoriaIdoso.isEmpty()){
+            lblCategoria.setText("Nenhum usuario na categoria Idoso.");
+            lblCategoria.setVerticalAlignment(lblPessoas.TOP);
+        }else {
+            for(i = 0; i < categoriaIdoso.size(); ++i) {
+
+                result += categoriaIdoso.get(i).imprimirPessoa();
+            }
+            result += "</html>";
+
+            lblCategoria.setVerticalAlignment(lblPessoas.TOP);
+
+            lblCategoria.setText(result);
+        }
     }//GEN-LAST:event_btnIdososActionPerformed
+
+    private void btnOrdenarAlfabeticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarAlfabeticoActionPerformed
+        // TODO add your handling code here:
+        
+        panPessoas.setVisible(true);
+        
+        listaUsuarios.sort(Comparator.comparing(Pessoa::getNome));
+        
+        String result = "<html>"; //concat tag HTML para conseguir quebrar a linha com <br>
+        
+        for(i = 0; i < listaUsuarios.size(); ++i) {            
+            result += listaUsuarios.get(i).imprimirPessoa();
+	}
+        result += "</html>";
+        
+        lblPessoas.setVerticalAlignment(lblPessoas.TOP);
+        
+        lblPessoas.setText(result);        
+    }//GEN-LAST:event_btnOrdenarAlfabeticoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,9 +508,6 @@ public class telaCaseTecnico extends javax.swing.JFrame {
                 new telaCaseTecnico().setVisible(true);
             }
         });
-       
-        
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -343,14 +516,15 @@ public class telaCaseTecnico extends javax.swing.JFrame {
     private javax.swing.JButton btnAdultos;
     private javax.swing.JButton btnCriancas;
     private javax.swing.JButton btnIdosos;
+    private javax.swing.JButton btnOrdenarAlfabetico;
     private javax.swing.JButton btnOrdenarIdade;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblPessoas;
     private java.awt.Panel panCategorias;
