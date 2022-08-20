@@ -1,0 +1,8 @@
+C:\Users\birio\source\repos\CaseTecnico\CaseTecnico\bin\Debug\CaseTecnico.exe.config
+C:\Users\birio\source\repos\CaseTecnico\CaseTecnico\bin\Debug\CaseTecnico.exe
+C:\Users\birio\source\repos\CaseTecnico\CaseTecnico\bin\Debug\CaseTecnico.pdb
+C:\Users\birio\source\repos\CaseTecnico\CaseTecnico\obj\Debug\CaseTecnico.csproj.AssemblyReference.cache
+C:\Users\birio\source\repos\CaseTecnico\CaseTecnico\obj\Debug\CaseTecnico.csproj.SuggestedBindingRedirects.cache
+C:\Users\birio\source\repos\CaseTecnico\CaseTecnico\obj\Debug\CaseTecnico.csproj.CoreCompileInputs.cache
+C:\Users\birio\source\repos\CaseTecnico\CaseTecnico\obj\Debug\CaseTecnico.exe
+C:\Users\birio\source\repos\CaseTecnico\CaseTecnico\obj\Debug\CaseTecnico.pdb
