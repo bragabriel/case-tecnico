@@ -12,6 +12,7 @@ public class Main {
 		
 		Scanner scanInt = new Scanner(System.in);
 		Scanner scanStg = new Scanner(System.in);
+		Scanner scanOp = new Scanner(System.in);
 		
         ArrayList<Pessoa> listaUsuarios = new ArrayList<Pessoa>();
         ArrayList<Pessoa> categoriaCrianca = new ArrayList<Pessoa>();
@@ -24,25 +25,34 @@ public class Main {
         System.out.println("--------------- Case Tecnico ----------------");
 
         while(true){
-        		int op;
+        		int op = 0;
+        		String input;
         		
-	            System.out.println("\nPor favor, selecione o numero da opcao escolhida:");
-	            System.out.println("1 - Cadastrar usuario");
-	            System.out.println("2 - Listar usuarios por Idade");
-	            System.out.println("3 - Listar usuarios por Ordem Alfabetica");
-	            System.out.println("4 - Listar por Categoria");
-	            System.out.println("9 - Sair");
-	            System.out.println("Opcao: ");
+        		do{
+        			System.out.println("\nPor favor, selecione o numero da opcao escolhida:");
+     	            System.out.println("1 - Cadastrar usuario");
+     	            System.out.println("2 - Listar usuarios por Idade");
+     	            System.out.println("3 - Listar usuarios por Ordem Alfabetica");
+     	            System.out.println("4 - Listar por Categoria");
+     	            System.out.println("9 - Sair");
+     	            System.out.println("Opcao: ");
+     	            
+     	            
+     	            //Tratamento de exceção
+     	            try {
+     	            	input = scanOp.nextLine();
+         	            
+         	            op = Integer.parseInt(input);
+         	            break;
+         	            
+     	            }catch(NumberFormatException except) {
+     	            	System.out.println("- Por favor, insira um número válido!");
+     	            }
+     	            
+        		}while(op != 1 || op != 2 || op != 3 || op != 4 || op != 9);
+	           
             
-	            try {
-	            	op = scanInt.nextInt();
-            	
-	            }catch(InputMismatchException exception) {
-	            	System.out.println("Por favor, insira um numero do tipo 'Inteiro' \n");
-	            	break;
-	            }
-            
-	            if(op==9) {
+	            if(op == 9) {
 	            	break;
 	            }else {
 	            	switch (op) {
@@ -161,17 +171,12 @@ public class Main {
 	                    	System.out.println("Opcao invalida! Selecione outra opcao");
 	                    	break;
 	                    
-	            }//fim switch
-	        }//fim else
-            
-           
-            
-            
-            
-        }//fim while
+	            	}//fim switch
+	            }//fim else
+        	}//fim while
 
         System.out.println("-- Programa Finalizado --");
-        System.out.println("-- Autor: Gabriel Braga --");
+        System.out.println("-- Autor: Gabriel Braga da Silva --");
 
         scanInt.close();
         scanStg.close();
