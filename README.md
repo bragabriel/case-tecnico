@@ -15,11 +15,11 @@ Desenvolver uma aplicação em qualquer linguagem de programação, a finalidade
 
 Desenvolvi 3 aplicações para este desafio, são elas:
 
-- [Java](#)
+- [Java](https://github.com/bragabriel/case-tecnico/tree/main/Java/Java)
 
-- [Java + GUI Swing](#)
+- [Java + GUI Swing](https://github.com/bragabriel/case-tecnico/tree/main/Java/JavaSwing)
 
-- [C#](#)
+- [C#](https://github.com/bragabriel/case-tecnico/tree/main/CSharp)
 
 Cada uma das aplicações possuem instruções que permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste. <br><br>
 
