@@ -23,6 +23,21 @@ OBS: Este projeto não possui interface gráfica, por isso é necessário rodar 
 
 ## ⚙️ Executando os testes
 
+### Tela inicial:
+![telaInicial](https://user-images.githubusercontent.com/72152596/185809696-cb905746-2582-442a-a2ce-3c3dd480ac6c.png)
 
 
+### Cadastrando pessoas (opção 1):
+![AdicionandoUsuario](https://user-images.githubusercontent.com/72152596/185809704-a194e20a-f9b1-4115-9be9-56134210a59a.png)
 
+
+### Exibindo as pessoas cadastradas, em ordem de idade (opção 2):
+![exibindoPorIdade](https://user-images.githubusercontent.com/72152596/185809708-2b54d25c-c97c-4ff0-84c1-10267fd510d8.png)
+
+
+### Exibindo as pessoas cadastradas, em ordem alfabética (opção 3):
+![exibindoPorOrdemAlfabetica](https://user-images.githubusercontent.com/72152596/185809711-59f79820-fcd3-41ef-957e-7d1ed11a69dc.png)
+
+
+### Exibindo as pessoas cadastradas, por categoria(opção 4):
+![exibindoPorCategoria](https://user-images.githubusercontent.com/72152596/185809713-575e0da5-dfbf-43bf-8408-51a3e469365e.png)
