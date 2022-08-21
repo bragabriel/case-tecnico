@@ -20,8 +20,13 @@ OBS: Este projeto não possui interface gráfica, por isso é necessário rodar 
 ## Rodando o projeto
 
 * Com a IDE aberta, importe o projeto.
-* Rode o projeto.
+* Abra o arquivo Main.java (CaseTecnico/src/classes/Main.java).
+* Clique em Run.
 
+Exemplo:
+![IDE](https://user-images.githubusercontent.com/72152596/185811308-fde0f8bb-dca2-4910-bc0f-75d5371924e4.png)
+
+<br>
 
 ## ⚙️ Executando os testes
 
