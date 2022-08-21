@@ -180,6 +180,7 @@ public class Main {
 
         scanInt.close();
         scanStg.close();
+        scanOp.close();
 	}
 
 }
