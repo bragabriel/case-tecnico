@@ -26,8 +26,7 @@ Cada uma das aplicações possuem instruções que permitirão que você obtenha
 
 ## 🎁 Agradecimentos
 
-Agradeço a oportunidade de participar deste processo seletivo, estou muito entusiasmado com as resoluções do Case Técnico em que cheguei. <br><br>
-Qualquer dúvida, não hesite em me contatar.<br>
-* **Gabriel Braga da Silva** - [LinkedIn](https://www.linkedin.com/in/gabriel-braga-da-silva/)
+Agradeço a oportunidade de participar deste processo seletivo! Qualquer dúvida, não hesite em me contatar.<br><br>
 
+* **Gabriel Braga da Silva** - [LinkedIn](https://www.linkedin.com/in/gabriel-braga-da-silva/)
 ---
